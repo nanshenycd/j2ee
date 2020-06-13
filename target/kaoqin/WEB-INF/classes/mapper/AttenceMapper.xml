@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.nanshenycd.kaoqin.mapper.AttenceMapper">
+    <select id="list" resultType="Attence">
+    select * from  attence order by id desc
+  </select>
+    <insert id="add" parameterType="Attence">
+        insert into attence (empname,dept,chkdate,status) values (#{empname},#{dept},#{chkdate},#{status})
+    </insert>
+    <delete id="delete" parameterType="Attence">
+        delete from attence where id = #{id}
+    </delete>
+    <update id="update" parameterType="Attence">
+        update attence set empname=#{empname},dept=#{dept},chkdate=#{chkdate},status=#{status} where id =#{id}
+    </update>
+    <select id="get" resultType="Attence" parameterType="int">
+        select * from attence where id =#{id}
+    </select>
+
+    <select id="select" parameterType="Attence">
+        select * from attence where name =#{name}
+    </select>
+</mapper>
